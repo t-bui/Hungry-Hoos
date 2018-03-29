@@ -2,80 +2,112 @@
 <html>
 
 <head>
-        <link rel="stylesheet" href="main.css">
-        <title>Hungry Hoos!</title>
-     </head>
-  
-    <body>
-      
-      <header>
-        
-        <h1>Hungry Hoos</h1>
-        <h2>Free Food For Frugal Friends</h2>
-        
-        <ul>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.html">Home</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.php">Sign In</a></li>
-        </ul>
-        
-        <script>
-          function hover(obj) {
-            obj.style.fontWeight = "bold"
-          }
-          
-          function away(obj) {
-            obj.style.fontWeight = "normal"
-          }
-        </script>
-        
-      </header>
+  <link rel="stylesheet" href="main.css">
+  <title>Hungry Hoos!</title>
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Hungry Hoos</h1>
+    <h2>Free Food For Frugal Friends</h2>
+
+    <ul>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.html">Home</a></li>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.html">Sign In</a></li>
+    </ul>
+
+    <script>
+      function hover(obj) {
+        obj.style.fontWeight = "bold"
+      }
+
+      function away(obj) {
+        obj.style.fontWeight = "normal"
+      }
+    </script>
+
+  </header>
 
   <h3>Browse</h3>
 
-  <div id = "main" class="form" style="display:flex;justify-content:center;align-items:center;">
+  <button>Add Div</button>
+  
+  <script type="text/javascript">
+      
+    function addDiv(parent_div, content, attrs) {
+      var div = document.createElement('div');
+      var parent = document.getElementById(parent_div);
 
-    <a href="create_event.html" class="button" style="text-align:center;align-items:center; 75px;">new event</a>
+      for (var key in attrs) {
+        if (attrs.hasOwnProperty(key)) {
+          div.setAttribute(key, attrs[key]);
+        }
+      }
+      div.innerHTML = content;
+      if (parent) {
+        parent.appendChild(div);
+      }
+    }
 
+    var button = document.getElementsByTagName('button')[0];
+    if (button) {
+      button.addEventListener('click', function() {
+        // change dynamically your new div
+        addDiv('eventSquare', 'hi', {
+        'class': 'someclass someclass',
+        'data-attr': 'attr'
+        });
+      });
+    }
+
+</script>
+
+<div id = "main" class="form" style="display:flex;justify-content:center;align-items:center;">
+
+  <a href="create_event.html" class="button" style="text-align:center;align-items:center; 75px;">new event</a>
+
+</div>
+
+<br />
+<br />
+
+<div class = "grid-container2">
+
+  <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
+    <div id = "main" class="eventContent">
+      <h2>Event Info Here</h2>
+    </div>
   </div>
 
-  <br />
-  <br />
 
-  <div class = "grid-container">
-
-    <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
-      <div id = "main" class="eventContent">
-        <h2>Event Info Here</h2>
-      </div>
+  <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
+    <div id = "main" class="eventContent">
+      <h2>Event Info Here</h2>
     </div>
-
-
-    <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
-      <div id = "main" class="eventContent">
-        <h2>Event Info Here</h2>
-      </div>
-    </div>
-
-    <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
-      <div id = "main" class="eventContent">
-        <h2>Event Info Here</h2>
-      </div>
-    </div>
-
-    <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
-      <div id = "main" class="eventContent">
-        <h2>Event Info Here</h2>
-      </div>
-    </div>
-
   </div>
 
+  <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
+    <div id = "main" class="eventContent">
+      <h2>Event Info Here</h2>
+    </div>
+  </div>
+
+  <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
+    <div id = "main" class="eventContent">
+      <h2>Event Info Here</h2>
+    </div>
+  </div>
+
+</div>
 
 
-  <footer>
-  </footer>
+
+<footer>
+</footer>
 
 </body>
 

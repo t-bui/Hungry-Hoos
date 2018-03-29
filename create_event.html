@@ -17,7 +17,7 @@
         <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.html">Home</a></li>
         <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
         <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
-        <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.php">Sign In</a></li>
+        <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.html">Sign In</a></li>
       </ul>
         
       <script>
@@ -35,16 +35,19 @@
   <h3>Create New Event</h3>
 
 
-  <footer>
-  </footer>
-
+  
 </body>
 
 <div id = "main" class="container">
 
   <div id = "main" class="form" style="float:left">
 
-    <form name="my_form" onsubmit="return validateForm()" />
+    <form name="my_form" onsubmit="return validateForm()" method = "get" action="eventFormServlet" />
+    	Your Name:
+    	<br />
+    	<input type = "text" name = "creatorName" class = "inputform" />
+    	<br />
+    	<br />
       Event Name:
       <br />
       <input type="text" name="eventName" class = "inputform" />
@@ -61,6 +64,7 @@
       <br />
       <br />
       <input type="submit" value="Submit" />
+   
     </form>
   
   </div>
@@ -127,5 +131,9 @@
 
       previewFile();  //calls the function named previewFile()
     </script>
+    
+   <!-- <footer>
+  </footer>  --> 
+    
 
 </html>
