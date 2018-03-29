@@ -153,6 +153,11 @@ a{
     margin:50px;
 }
 
+.response {
+	text-align:center;
+	margin: auto;
+}
+
 .centered {
   position: fixed;
   top: 300px;
