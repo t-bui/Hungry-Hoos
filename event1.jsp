@@ -11,7 +11,7 @@
       <header>
         
         <h1>Hungry Hoos</h1>
-        <h2>Free Food For Frugal Friends</h2>
+        <h2>Free Food For Frugal Friends</h2>am
         
         <ul>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.html">Home</a></li>
@@ -31,20 +31,28 @@
         </script>
         
       </header>
+
+ <jsp:useBean id="pageCounter" class="visitBean" scope="page" />
+<jsp:setProperty name="pageCounter" property="counter" value="0" /> 
+ <p>
+    This page has been visited (page scope)
+    <font color="green"><i>
+      <jsp:getProperty name="pageCounter" property="counter" />
+    </i></font>
+    times   
+  </p>	
         
-      <h3>About me</h3>
-      
-      
-      <div id = "about">
-        <p>Hungry Hoos is a website that is designed to help UVA students find free food on grounds. Organizations often give out free food, and Hungry Hoos provides a central location for students to find these opportunities to eat free meals. Organizations or other students that know about the free food and its time and location will have the ability to post information about the food along with an expiration time when it should be removed from the site. </p>
-      </div>
-      
-      <br>
-      
-      <div id = "about" >
-        <img src = "https://news.virginia.edu/sites/default/files/styles/uva_basic_article/public/article_image/Buy_Local_Fine_Arts_Cafe_02HR_DA.jpg?itok=I_o5Wy-c" width="300" height="200" alt = "free food">
-        
-      </div>
+ <center> <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
+    <div id = "main" class="eventContent">
+      <h2>Food Bananza</h2>
+	<p style="text-align;left" >
+		<b>Host</b>: Tiffany Bui <br>
+		<b>Location</b>: Rice Hall (Room 130) <br>
+		<b>Description</b>: Celebrate the end of the year with free pizza and froyo!
+	</p> 
+    </div>
+  </div> </center>
+	
         
       <footer>
       </footer>
