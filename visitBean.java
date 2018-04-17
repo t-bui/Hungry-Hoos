@@ -1,4 +1,4 @@
-// all bean must be in package
+package mypackage;
 
 public class visitBean 
 {
@@ -14,8 +14,8 @@ public class visitBean
    
    public int getCounter() 
    {
-      counter += step;
-      return counter;
+      //counter += step;
+      return counter++;
    }
 
    public void setCounter()

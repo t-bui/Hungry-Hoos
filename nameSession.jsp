@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    
-    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
         <link rel="stylesheet" href="main.css">
         <title>Hungry Hoos!</title>
      </head>
@@ -31,25 +31,30 @@
         </script>
         
       </header>
-        
-      <h3>About me</h3>
-      
-      
-      <div id = "about">
-        <p>Hungry Hoos is a website that is designed to help UVA students find free food on grounds. Organizations often give out free food, and Hungry Hoos provides a central location for students to find these opportunities to eat free meals. Organizations or other students that know about the free food and its time and location will have the ability to post information about the food along with an expiration time when it should be removed from the site. </p>
-      </div>
-      
-      <br>
-      
-      <div id = "about" >
-        <img src = "https://news.virginia.edu/sites/default/files/styles/uva_basic_article/public/article_image/Buy_Local_Fine_Arts_Cafe_02HR_DA.jpg?itok=I_o5Wy-c" width="300" height="200" alt = "free food">
-        
-      </div>
-        
-      <footer>
-      </footer>
-        
-    </body>
+	</head>
 
 
+  
+  <hr />
+
+  <jsp:useBean id="events" class="mypackage.SaveName" scope="session"> </jsp:useBean>
+  
+  <jsp:setProperty name="events" property="name" value='<%= request.getParameter("name") %>' />
+
+    
+  <p>  
+    Saved event,    
+    <font color="blue"><i><jsp:getProperty name="events" property="name"  /></i></font>
+    
+  </p>
+      
+
+
+
+ <footer>
+ </footer>
+
+</body>
 </html>
+
+ 

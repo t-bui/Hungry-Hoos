@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     
     <head>
@@ -14,7 +14,7 @@
         <h2>Free Food For Frugal Friends</h2>
         
         <ul>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.html">Home</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.jsp">Home</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.php">Sign In</a></li>
