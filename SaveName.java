@@ -4,6 +4,7 @@ package mypackage;
 public class SaveName
 {
    private String name;
+
  
    public SaveName()
    {    	   
@@ -18,5 +19,7 @@ public class SaveName
    {
       this.name = nm; 
    }
+ 
+ 
  
 }

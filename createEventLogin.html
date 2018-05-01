@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+  <title>Hungry Hoos!</title>
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Hungry Hoos</h1>
+    <h2>Free Food For Frugal Friends</h2>
+
+    <ul>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				id="home" href="">Home</a></li>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				id="about" href="">About Me</a></li>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				id="browse" href="">Browse</a></li>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
+		</ul>
+
+		<script>
+			function getSearchParams(k) {
+				var p = {};
+				location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s,
+						k, v) {
+					p[k] = v
+				})
+				return k ? p[k] : p;
+			}
+			var name = getSearchParams("username");
+			
+			document.getElementById("home").href = "homeLogin.jsp?username="
+					+ name;
+			document.getElementById("about").href = "aboutLogin.html?username="
+					+ name;
+			document.getElementById("browse").href = "browseLogin.html?username="
+					+ name;
+			document.getElementById("user").value = name;
+			/*
+			document.getElementById("e1").href = "e1L.jsp?username=" + "Jake";
+			document.getElementById("e2").href = "e2L.jsp?username=" + "Jake";
+			document.getElementById("e3").href = "e3L.jsp?username=" + "Jake";
+			document.getElementById("e4").href = "e4L.jsp?username=" + "Jake";
+			*/
+
+			function hover(obj) {
+				obj.style.fontWeight = "bold"
+			}
+
+			function away(obj) {
+				obj.style.fontWeight = "normal"
+			}
+		</script>
+
+  </header>
+
+  <h3>Create New Event</h3>
+
+
+  
+</body>
+
+<div id = "main" class="container">
+
+  <div id = "main" class="form" style="float:left">
+
+    <form name="my_form" method = "POST" action="EventServlet" />
+    <input type = "hidden" id = "user" name= "userName" >
+    	Your Name:
+    	<br />
+    	<input type = "text" name = "creatorName" class = "inputform" />
+    	<br />
+    	<br />
+      Event Name:
+      <br />
+      <input type="text" name="eventName" class = "inputform" />
+      <br />
+      <br />
+      Location:
+      <br />
+      <input type="text" name="Location" class = "inputform" />
+      <br />
+      <br />
+      Description:
+      <br />
+      <input type = "text" name="eventDescription" class = "inputDescription" />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+   
+    </form>
+  
+  </div>
+
+  <div id = "main" class = "form" style = "float:right;">
+    <br />
+    <br />
+    Upload an Image
+    <label for="file-upload" class="button">
+      Choose file
+    </label>
+    
+    <input id="file-upload" type="file" onChange="previewFile()"/>
+    <br>
+    <img src="" height="300" alt="Image preview...">
+    <br />
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  function validateForm() {
+    var my_form = document.forms["my_form"];
+
+        //check Name is not empty
+        var x = my_form["eventName"].value;
+        if(x == "") {
+          alert("Event Name field must be filled out!");
+          return false;
+        }
+
+        //Check location is not empty
+        x = my_form["Location"].value
+        if(x == "") {
+          alert("Location field must be filled out!");
+          return false;
+        }
+        //check description is not empty
+        x = my_form["eventDescription"].value
+        if(x == "") {
+          alert("Description field must be filled out!");
+          return false;
+        }
+        
+
+      }
+  	
+  function getSearchParams(k) {
+		var p = {};
+		location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s,
+				k, v) {
+			p[k] = v
+		})
+		return k ? p[k] : p;
+	}
+	//var name = getSearchParams("username");
+	//document.getElementbyId("user").value = name;
+      
+      function previewFile(){
+        var preview = document.querySelector('img'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+
+        reader.onloadend = function () {
+         preview.src = reader.result;
+       }
+
+       if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+          } else {
+           preview.src = "";
+         }
+       }
+
+      previewFile();  //calls the function named previewFile()
+      
+      
+    </script>
+    
+   <!-- <footer>
+  </footer>  --> 
+  
+ 
+    
+
+</html>

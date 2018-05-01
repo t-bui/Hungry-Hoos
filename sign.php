@@ -14,10 +14,10 @@
         <h2>Free Food For Frugal Friends</h2>
         
          <ul>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.jsp">Home</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.php">Sign In</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/home.html">Home</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/about.html">About Me</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/browse.html">Browse</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost/Feed-Me/sign.php">Sign In</a></li>
         </ul>
         
         <script>
@@ -93,7 +93,7 @@
     </script>
     <div id = "main" class="form" style="display:flex;justify-content:center;align-items:center;">
 
-      <form id = "my_form2" action = "<?php $_SERVER['PHP_SELF'] ?>" method = "post">
+      <form id = "my_form2" action = "loginHandler.php" method = "post">
         Email:
         <br />
         <input type="text" name="Email" class = "inputform" />
@@ -109,7 +109,7 @@
         <br />
         <br />
         <p style="text-align:center;">New to Hungry Hoos? Sign up here!</p>
-        <a href="signup.php" class="button" style="text-align:center;align-items:center; 75px;">Sign up!</a>
+        <a href="http://localhost/Feed-Me/signup.php" class="button" style="text-align:center;align-items:center; 75px;">Sign up!</a>
 
       </form>
     </div>

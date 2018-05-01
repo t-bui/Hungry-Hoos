@@ -17,7 +17,7 @@
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.jsp">Home</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.html">Sign In</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost/Feed-Me/sign.php">Sign In</a></li>
         </ul>
         
         <script>
@@ -50,9 +50,13 @@
   <br />
   
   
+   
+
+  	
   
   <form method="post" action="nameSession.jsp">
   	<input type ="hidden" name="name" value="Matcha Madness">
+  	<input type ="hidden" name="location" value="New Cabell Hall (Room 214)">
   	<input type="submit" id="addEvent" title="save to your events" class ="button" value ="+" style="width:50px;font-size:30px"></input>
 
   	

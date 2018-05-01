@@ -14,9 +14,9 @@
         <h2>Free Food For Frugal Friends</h2>
         
         <ul>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="home.jsp">Home</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="about.html">About Me</a></li>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browse.html">Browse</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/home.html">Home</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/about.html">About Me</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/browse.html">Browse</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="sign.php">Sign In</a></li>
         </ul>
         
@@ -96,7 +96,7 @@
     </script>
 	
     <div id = "main" class="form" style="display:flex;justify-content:center;align-items:center;">
-      <form id = "my_form" action = "<?php $_SERVER['PHP_SELF'] ?>" method = "post">
+      <form id = "my_form" action = "formHandler.php" method = "post">
         Name:
         <br />
         <input type="text" name="Name" class = "inputform" />
@@ -151,11 +151,6 @@
 	    $empty = true;
  	  
         
-	  $e = $_POST['Email'];
-          $emailFormat = filter_var($e, FILTER_VALIDATE_EMAIL);
-	  
-	  sendMessage($empty, $emailFormat);
-          
 
 	}
 

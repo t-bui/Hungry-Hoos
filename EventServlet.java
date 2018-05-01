@@ -40,6 +40,7 @@ public class EventServlet extends HttpServlet {
 		String creatorName;
 
 		int count = 0;
+		ses.setAttribute("accessCount", count);
 
 		if (ses.isNew())
 
@@ -61,7 +62,7 @@ public class EventServlet extends HttpServlet {
 
 		}
 
-		ses.setAttribute("accessCount", count);
+
 
 		// Set the response message's MIME type
 		response.setContentType("text/html; charset=UTF-8");
@@ -76,19 +77,19 @@ public class EventServlet extends HttpServlet {
 			// <link rel="stylesheet" href="main.css">
 			// <title>Hungry Hoos!</title>
 			// </head>
-
+			String user = request.getParameter("userName");
 			out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
 			out.println("<link rel = 'stylesheet' href = 'main.css' >");
 			out.println("<title>Hungry Hoos</title></head>");
 			out.println("<body><h1>Hungry Hoos</h1> <h2>Free Food For Frugal Friends</h2>");
 			out.println("<ul>");
-			out.println("<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='home.jsp'>Home</a></li>");
+			out.println("<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='homeLogin.jsp?username=" + user + " '>Home</a></li>");
 			out.println(
-					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='about.html'>About Me</a></li>");
+					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='aboutLogin.html?username=" + user + " '>About Me</a></li>");
 			out.println(
-					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='browse.html'>Browse</a></li>");
+					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='browseLogin.html?username=" + user + " '>Browse</a></li>");
 			out.println(
-					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='sign.html'>Sign In</a></li>");
+					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='http://localhost/Feed-Me/logout.php'>Log Out</a></li>");
 			out.println("</ul>");
 
 			out.println("<script>");
@@ -99,10 +100,8 @@ public class EventServlet extends HttpServlet {
 			out.println("</script>");
 
 			out.println("<h2> " + heading + " </h2>");
-			//out.println("<div id = 'main' class = 'centered'>");
-			//out.println("<div id = 'main'  style='display:flex;justify-content:center;align-items:center;color:EAF2F8'>");
-			//out.println("<div id = 'main' class='eventContent'>");
-			// Retrieve the value of the query parameter "username" (from text field)
+			
+			
 			out.println("<div id ='main' class = 'response' >");
 			String eventName = request.getParameter("eventName");
 			// Get null if the parameter is missing from query string.
@@ -113,7 +112,7 @@ public class EventServlet extends HttpServlet {
 				out.println("<p>Event Name: " + eventName + "</p>");
 			}
 
-			// Retrieve the value of the query parameter "password" (from password field)
+			
 			String Location = request.getParameter("Location");
 			if (Location == null || (Location = htmlFilter(Location.trim())).length() == 0) {
 				out.println("<p>Location: MISSING</p>");
@@ -121,7 +120,7 @@ public class EventServlet extends HttpServlet {
 				out.println("<p>Location: " + Location + "</p>");
 			}
 
-			// Retrieve the value of the query parameter "gender" (from radio button)
+
 			String description = request.getParameter("eventDescription");
 			// Get null if the parameter is missing from query string.
 			if (description == null) {
@@ -130,24 +129,28 @@ public class EventServlet extends HttpServlet {
 				out.println("<p>Description: " + description + "</p>");
 			}
 
-			/*
-			 * String file = request.getParameter("file-upload"); if (file == null) {
-			 * out.println("<p>Photo: Missing</p>"); } else { out.println(""); }
-			 */
 
 			out.println("<h2> Want to post it? </h2>");
-			out.println("<br />");
-			out.println("<br />");
-			out.println("<form name='confirm' action= 'browse.html' >");
-			out.println("<input type='submit' value='Confirm' />");
+			//out.println("<br />");
+			//out.println("<br />");
+			if (user.equals("")) {
+				out.println("<form name='confirm' action= browse.html  method ='get' ");
+				out.println("<input type='hidden' value'form'  />");
+				out.println("<input type='submit' value='Confirm' />");
+			} else {
+				out.println("<form name='confirm' action= 'browseLogin.html?username=" + user + "' method ='post' ");
+				out.println("<input type='hidden' value'form'  />");
+				out.println("<input type='submit' value='Confirm' />");
+			}
+			
 			out.println("</form>");
-			out.println("</div>");
+			//out.println("</div>");
 			//out.println("</div>");
 			//out.println("</div>");
 			//out.println("</div>");
 
-			out.println("<footer>");
-			out.println("</footer>");
+			//out.println("<footer>");
+			//out.println("</footer>");
 
 		} finally {
 			out.close(); // Always close the output writer
@@ -191,5 +194,10 @@ public class EventServlet extends HttpServlet {
 		}
 		return (result.toString());
 	}
+	
+
 
 }
+
+
+

@@ -1,3 +1,13 @@
+
+<?php
+	session_start();
+
+	if(!isset($_SESSION['good']))
+	{
+		header("Location: browse.html");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,18 +23,55 @@
 		<h1>Hungry Hoos</h1>
 		<h2>Free Food For Frugal Friends</h2>
 
+
+
+		<!--<ul>
+		  <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="homeLogin.jsp?username="+ nameString>Home</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="aboutLogin.html?username="+ nameString>About Me</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="browseLogin.html?username="+ nameString>Browse</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
+		</ul> -->
+
 		<ul>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
-				href="home.jsp">Home</a></li>
+				id="home" href="">Home</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
-				href="about.html">About Me</a></li>
+				id="about" href="">About Me</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
-				href="browse.html">Browse</a></li>
+				id="browse" href="">Browse</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
-				href="http://localhost/Feed-Me/sign.php">Sign In</a></li>
+				id = "savedEvents" href="">Saved Events</a></li>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
+				
 		</ul>
 
 		<script>
+			function getSearchParams(k) {
+				var p = {};
+				location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s,
+						k, v) {
+					p[k] = v
+				})
+				return k ? p[k] : p;
+			}
+			var name = getSearchParams("username");
+			
+			document.getElementById("home").href = "homeLogin.jsp?username="
+					+ name;
+			document.getElementById("about").href = "aboutLogin.html?username="
+					+ name;
+			document.getElementById("browse").href = "browseLogin.html?username="
+					+ name;
+			document.getElementById("savedEvents").href = "http://localhost/Feed-Me/savedEvents.html?username="
+				+ name;
+			/*
+			document.getElementById("e1").href = "e1L.jsp?username=" + "Jake";
+			document.getElementById("e2").href = "e2L.jsp?username=" + "Jake";
+			document.getElementById("e3").href = "e3L.jsp?username=" + "Jake";
+			document.getElementById("e4").href = "e4L.jsp?username=" + "Jake";
+			*/
+
 			function hover(obj) {
 				obj.style.fontWeight = "bold"
 			}
@@ -72,7 +119,7 @@
 	<div id="main" class="form"
 		style="display: flex; justify-content: center; align-items: center;">
 
-		<a href="createEvent.html" class="button"
+		<a id = "createEventLogin" href="" class="button"
 			style="text-align: center; align-items: center; 75px;">new event</a>
 
 	</div>
@@ -84,7 +131,7 @@
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a href="e1.jsp"><h2>Food Bananza</h2></a>
+				<a id = "e1" href=""><h2>Food Bananza</h2></a>
 
 			</div>
 		</div>
@@ -93,21 +140,21 @@
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a href="e2.jsp"><h2>Froyzen</h2></a>
+				<a id = "e2" href=""><h2>Froyzen</h2></a>
 			</div>
 		</div>
 
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a href="e3.jsp"><h2>Lettuce have fun!</h2></a>
+				<a id ="e3" href=""><h2>Lettuce have fun!</h2></a>
 			</div>
 		</div>
 
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a href="e4.jsp"><h2>Matcha Madness</h2></a>
+				<a  id="e4" href=""><h2>Matcha Madness</h2></a>
 			</div>
 		</div>
 
@@ -121,9 +168,9 @@
 
 		<p style="text-alight: center">
 			<i>Click each event for more information or if you're in a rush,
-				quickly narrow it down by location!</i> <br>
-			<br> <b>Search: <input ng-model="input"></b> <i
-				class="fa fa-search"></i>
+				quickly narrow it down by location!</i> <br> <br> <b>Search:
+				<input ng-model="input">
+			</b> <i class="fa fa-search"></i>
 		<table id="Results">
 			<tr ng-repeat="events in events | filter:input">
 				<td>{{events.name}}</td>
@@ -133,6 +180,25 @@
 	</div>
 
 	</div>
+	
+	<script>
+	function getSearchParams(k) {
+		var p = {};
+		location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s,
+				k, v) {
+			p[k] = v
+		})
+		return k ? p[k] : p;
+	}
+	var name = getSearchParams("username");
+	
+	document.getElementById("e1").href = "e1L.jsp?username=" + name;
+	document.getElementById("e2").href = "e2L.jsp?username=" + name;
+	document.getElementById("e3").href = "e3L.jsp?username=" + name;
+	document.getElementById("e4").href = "e4L.jsp?username=" + name;
+	document.getElementById("createEventLogin").href = "createEventLogin.html?username=" + name;
+
+	</script>
 
 
 	<footer> </footer>
