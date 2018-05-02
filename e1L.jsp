@@ -20,6 +20,8 @@
 				id="about" href="">About Me</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
 				id="browse" href="">Browse</a></li>
+				<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				id="savedEvents" href="">Saved Events</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
 				href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
 		</ul>
@@ -41,6 +43,8 @@
 					+ name;
 			document.getElementById("browse").href = "browseLogin.html?username="
 					+ name;
+			document.getElementById("savedEvents").href = "http://localhost/Feed-Me/getData.php?username="
+				+ name;
 			/*
 			document.getElementById("e1").href = "e1L.jsp?username=" + "Jake";
 			document.getElementById("e2").href = "e2L.jsp?username=" + "Jake";

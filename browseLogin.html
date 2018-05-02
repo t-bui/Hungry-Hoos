@@ -1,4 +1,4 @@
-
+<!--  
 <?php
 	session_start();
 
@@ -6,7 +6,7 @@
 	{
 		header("Location: browse.html");
 	}
-?>
+?> -->
 
 <!DOCTYPE html>
 <html>
@@ -17,9 +17,24 @@
 </head>
 
 <body>
-
 	<header>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="computGrade.js"></script>
 
+		</head>
+		<body ng-app="myApp">
+
+			<hr />
+
+			<br />
+
+
+			</div>
+
+
+
+		</body>
 		<h1>Hungry Hoos</h1>
 		<h2>Free Food For Frugal Friends</h2>
 
@@ -40,10 +55,10 @@
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
 				id="browse" href="">Browse</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
-				id = "savedEvents" href="">Saved Events</a></li>
+				id="savedEvents" href="">Saved Events</a></li>
 			<li><a onmouseover="hover(this)" onmouseout="away(this)"
 				href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
-				
+
 		</ul>
 
 		<script>
@@ -56,21 +71,21 @@
 				return k ? p[k] : p;
 			}
 			var name = getSearchParams("username");
-			
+
 			document.getElementById("home").href = "homeLogin.jsp?username="
 					+ name;
 			document.getElementById("about").href = "aboutLogin.html?username="
 					+ name;
 			document.getElementById("browse").href = "browseLogin.html?username="
 					+ name;
-			document.getElementById("savedEvents").href = "http://localhost/Feed-Me/savedEvents.html?username="
-				+ name;
+			document.getElementById("savedEvents").href = "http://localhost/Feed-Me/getData.php?username="
+					+ name;
 			/*
 			document.getElementById("e1").href = "e1L.jsp?username=" + "Jake";
 			document.getElementById("e2").href = "e2L.jsp?username=" + "Jake";
 			document.getElementById("e3").href = "e3L.jsp?username=" + "Jake";
 			document.getElementById("e4").href = "e4L.jsp?username=" + "Jake";
-			*/
+			 */
 
 			function hover(obj) {
 				obj.style.fontWeight = "bold"
@@ -119,7 +134,7 @@
 	<div id="main" class="form"
 		style="display: flex; justify-content: center; align-items: center;">
 
-		<a id = "createEventLogin" href="" class="button"
+		<a id="createEventLogin" href="" class="button"
 			style="text-align: center; align-items: center; 75px;">new event</a>
 
 	</div>
@@ -131,7 +146,7 @@
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a id = "e1" href=""><h2>Food Bananza</h2></a>
+				<a id="e1" href=""><h2>Food Bananza</h2></a>
 
 			</div>
 		</div>
@@ -140,21 +155,28 @@
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a id = "e2" href=""><h2>Froyzen</h2></a>
+				<a id="e2" href=""><h2>Froyzen</h2></a>
 			</div>
 		</div>
 
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a id ="e3" href=""><h2>Lettuce have fun!</h2></a>
+				<a id="e3" href=""><h2>Lettuce have fun!</h2></a>
 			</div>
 		</div>
 
 		<div id="main" class="eventSquare"
 			style="display: flex; justify-content: center; align-items: center;">
 			<div id="main" class="eventContent">
-				<a  id="e4" href=""><h2>Matcha Madness</h2></a>
+				<a id="e4" href=""><h2>Matcha Madness</h2></a>
+			</div>
+		</div>
+		
+		<div id="main" class="eventSquare"
+			style="display: flex; justify-content: center; align-items: center;">
+			<div id="main" class="eventContent">
+				<a id = "e5" href=""><h2>Bae-gels</h2></a>
 			</div>
 		</div>
 
@@ -162,9 +184,11 @@
 			ng-init="events = [{name:'Froyzen', location:'Gilmer Hall'},
 		          {name:'Food Bananza', location:'Rice Hall'},
 		          {name:'Lettuce have fun!', location:'Newcomb Ballroom'},
-		          {name:'Matcha Madness', location:'New Cabell Hall'}]">
+		          {name:'Matcha Madness', location:'New Cabell Hall'},
+				  {name:'Bae-gels', location:'Rice Hall'}]">
 
 		</div>
+		<div>
 
 		<p style="text-alight: center">
 			<i>Click each event for more information or if you're in a rush,
@@ -177,27 +201,29 @@
 			</tr>
 		</table>
 		</p>
+
 	</div>
 
 	</div>
-	
+
 	<script>
-	function getSearchParams(k) {
-		var p = {};
-		location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(s,
-				k, v) {
-			p[k] = v
-		})
-		return k ? p[k] : p;
-	}
-	var name = getSearchParams("username");
-	
-	document.getElementById("e1").href = "e1L.jsp?username=" + name;
-	document.getElementById("e2").href = "e2L.jsp?username=" + name;
-	document.getElementById("e3").href = "e3L.jsp?username=" + name;
-	document.getElementById("e4").href = "e4L.jsp?username=" + name;
-	document.getElementById("createEventLogin").href = "createEventLogin.html?username=" + name;
+		function getSearchParams(k) {
+			var p = {};
+			location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+					function(s, k, v) {
+						p[k] = v
+					})
+			return k ? p[k] : p;
+		}
+		var name = getSearchParams("username");
 
+		document.getElementById("e1").href = "e1L.jsp?username=" + name;
+		document.getElementById("e2").href = "e2L.jsp?username=" + name;
+		document.getElementById("e3").href = "e3L.jsp?username=" + name;
+		document.getElementById("e4").href = "e4L.jsp?username=" + name;
+		document.getElementById("e5").href = "e5L.jsp?username=" + name;
+		document.getElementById("createEventLogin").href = "createEventLogin.html?username="
+				+ name;
 	</script>
 
 

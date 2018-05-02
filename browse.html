@@ -9,6 +9,19 @@
 <body>
 
 	<header>
+	<script
+			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="computGrade.js"></script>
+
+		</head>
+		<body ng-app="myApp">
+
+			<hr />
+
+			<br />
+
+
+			</div>
 
 		<h1>Hungry Hoos</h1>
 		<h2>Free Food For Frugal Friends</h2>
@@ -110,15 +123,22 @@
 				<a href="e4.jsp"><h2>Matcha Madness</h2></a>
 			</div>
 		</div>
+		
+		<div id="main" class="eventSquare"
+			style="display: flex; justify-content: center; align-items: center;">
+			<div id="main" class="eventContent">
+				<a href="e5.jsp"><h2>Bae-gels</h2></a>
+			</div>
+		</div>
 
 		<div
 			ng-init="events = [{name:'Froyzen', location:'Gilmer Hall'},
 		          {name:'Food Bananza', location:'Rice Hall'},
 		          {name:'Lettuce have fun!', location:'Newcomb Ballroom'},
-		          {name:'Matcha Madness', location:'New Cabell Hall'}]">
-
+		          {name:'Matcha Madness', location:'New Cabell Hall'},
+		          {name:'Bae-gels', location:'Rice Hall'}] ">
 		</div>
-
+<div>
 		<p style="text-alight: center">
 			<i>Click each event for more information or if you're in a rush,
 				quickly narrow it down by location!</i> <br>
@@ -131,6 +151,7 @@
 		</table>
 		</p>
 	</div>
+	
 
 	</div>
 

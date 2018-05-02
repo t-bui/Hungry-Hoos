@@ -32,5 +32,5 @@ catch(PDOException $e)
 	echo "Connection failed: " . $e->getMessage();
 }
 
-header('Location: http://localhost:8080/hungryHoos2/savedEvents.html?username='.$name_string);
+//header('Location: http://localhost:8080/hungryHoos2/savedEvents.html?username='.$name_string);
 ?>

@@ -14,7 +14,7 @@
         <h2>Free Food For Frugal Friends</h2>
         
          <ul>
-          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/home.html">Home</a></li>
+          <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/home.jsp">Home</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/about.html">About Me</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost:8080/hungryHoos2/browse.html">Browse</a></li>
           <li><a onmouseover = "hover(this)" onmouseout = "away(this)" href="http://localhost/Feed-Me/sign.php">Sign In</a></li>

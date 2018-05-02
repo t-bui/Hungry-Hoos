@@ -1,26 +1,79 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+  <link rel="stylesheet" href="main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="data.js"></script>
+  <meta charset="utf-8">
+  <title>Hungry Hoos!</title>
+
+</head>
+
 <body>
 
-<div ng-app="myApp" ng-controller="customersCtrl"> 
+  <header>
 
-<ul>
-  <li ng-repeat="x in myData">
-    {{ x.eventName + ', ' + x.location }}
-  </li>
-</ul>
+    <h1>Hungry Hoos</h1>
+    <h2>Free Food For Frugal Friends</h2>
 
-</div>
 
-<script>
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-  $http.get("save.php").then(function (response) {
-      $scope.myData = response.data.records;
-  });
-});
-</script>
+    
+    <ul>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" id = "home" href="">Home</a></li>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" id = "about" href="">About Me</a></li>
+      <li><a onmouseover = "hover(this)" onmouseout = "away(this)" id = "browse" href="">Browse</a></li>
+      <li><a onmouseover="hover(this)" onmouseout="away(this)"
+        id="savedEvents" href="">Saved Events</a></li>
+        <li><a onmouseover = "hover(this)" onmouseout = "away(this)"  href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
+      </ul>
 
-</body>
-</html>
+      <script>
+
+        function getSearchParams(k) {
+          var p = {};
+          location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+            function(s, k, v) {
+              p[k] = v
+            })
+          return k ? p[k] : p;
+        }
+        var name = getSearchParams("username");
+        document.getElementById("home").href = "http://localhost:8080/hungryHoos2/homeLogin.jsp?username=" + name;
+        document.getElementById("about").href = "http://localhost:8080/hungryHoos2/aboutLogin.html?username=" + name;
+        document.getElementById("browse").href = "http://localhost:8080/hungryHoos2/browseLogin.html?username=" + name;
+        document.getElementById("savedEvents").href = "http://localhost/Feed-Me/getData.php?username="
+        + name;
+        
+        function hover(obj) {
+          obj.style.fontWeight = "bold"
+        }
+
+        function away(obj) {
+          obj.style.fontWeight = "normal"
+        }
+      </script>
+
+    </header>
+
+
+
+
+
+
+  </head>
+  <body>
+    <div ng-app="myFetch" ng-controller="fetchCtrl">
+      <p>
+        <a ng-repeat="x in myBatsman">
+          {{ x.eventName + ', ' + x.location }}
+          
+        </a>
+      </p>
+    </div>
+  </body>
+<footer>
+  
+</footer>
+
+
+  </html>

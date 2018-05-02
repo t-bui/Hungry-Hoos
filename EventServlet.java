@@ -41,6 +41,7 @@ public class EventServlet extends HttpServlet {
 
 		int count = 0;
 		ses.setAttribute("accessCount", count);
+		creatorName = request.getParameter("creatorName");
 
 		if (ses.isNew())
 
@@ -88,6 +89,8 @@ public class EventServlet extends HttpServlet {
 					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='aboutLogin.html?username=" + user + " '>About Me</a></li>");
 			out.println(
 					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='browseLogin.html?username=" + user + " '>Browse</a></li>");
+			out.println(
+					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='http://localhost/Feed-Me/getData.php?username=" + user + " '>Saved Events</a></li>");
 			out.println(
 					"<li><a onmouseover = 'hover(this)' onmouseout = 'away(this)' href='http://localhost/Feed-Me/logout.php'>Log Out</a></li>");
 			out.println("</ul>");
@@ -137,10 +140,12 @@ public class EventServlet extends HttpServlet {
 				out.println("<form name='confirm' action= browse.html  method ='get' ");
 				out.println("<input type='hidden' value'form'  />");
 				out.println("<input type='submit' value='Confirm' />");
+				//out.println("<button type='button'>Click Me!</button>");
 			} else {
 				out.println("<form name='confirm' action= 'browseLogin.html?username=" + user + "' method ='post' ");
 				out.println("<input type='hidden' value'form'  />");
 				out.println("<input type='submit' value='Confirm' />");
+				//out.println("<button type='button'>Click Me!</button>");
 			}
 			
 			out.println("</form>");

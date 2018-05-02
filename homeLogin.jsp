@@ -39,6 +39,8 @@
 			id="about" href="">About Me</a></li>
 		<li><a onmouseover="hover(this)" onmouseout="away(this)"
 			id="browse" href="">Browse</a></li>
+			<li><a onmouseover="hover(this)" onmouseout="away(this)"
+				id="savedEvents" href="">Saved Events</a></li>
 		<li><a onmouseover="hover(this)" onmouseout="away(this)"
 			href="http://localhost/Feed-Me/logout.php">Log Out</a></li>
 	</ul>
@@ -57,6 +59,8 @@
 		document.getElementById("home").href = "homeLogin.jsp?username=" + name;
 		document.getElementById("about").href = "aboutLogin.html?username=" + name;
 		document.getElementById("browse").href = "browseLogin.html?username=" + name;
+		document.getElementById("savedEvents").href = "http://localhost/Feed-Me/getData.php?username="
+			+ name;
 
 		function hover(obj) {
 

@@ -60,7 +60,6 @@
 				obj.style.fontWeight = "normal"
 			}
 		</script>
-		
       </header>
 
 <%@include file="count.jsp" %>
@@ -68,11 +67,11 @@
     
  <center> <div id = "main" class="eventSquare" style="display:flex;justify-content:center;align-items:center;">
     <div id = "main" class="eventContent">
-      <h2>Froyzen</h2>
+      <h2>Bae-gels</h2>
 		<p style="text-align;left" >
-		<b>Host</b>: Erin Alleva <br>
-		<b>Location</b>: Gilmer Hall (Lobby) <br>
-		<b>Description</b>: Get some delicious frozen yogurt! Toppings included. 
+		<b>Host</b>: Tiffany Bui <br>
+		<b>Location</b>: Rice Hall (Room 130) <br>
+		<b>Description</b>: Eat free bagels and find a loved one!
 	</p> 
     </div>
   
@@ -82,11 +81,11 @@
   
   
   
-<form method="post" action="http://localhost/Feed-Me/saveToDB.php">
+  <form method="post" action="http://localhost/Feed-Me/saveToDB.php">
 		<input type=hidden name="user" id="user" > 
-		<input type="hidden" name="name" value="Froyzen"> 
-		<input type="hidden"name="location" value="Gilmer Hall (Lobby)"> 
-		<input type="hidden" name="description" value="Get some delicious frozen yogurt! Toppings included.">"
+		<input type="hidden" name="name" value="Food Bananza"> 
+		<input type="hidden"name="location" value="Rice Hall (Room 130)"> 
+		<input type="hidden" name="description" value="Celebrate the end of the year with free pizza and froyo!">"
 		<input type="submit" id="addEvent2" title="save to your events" class="button" value="+" style="width: 50px; font-size: 30px"></input>
 
 
@@ -102,7 +101,8 @@
 		}
 		var name = getSearchParams("username");
 		document.getElementById("user").value = name;
-	</script>
+	</script>  
+	
         
       <footer>
       </footer>

@@ -42,7 +42,7 @@
     $_SESSION['good'] = "good";
 
     //go back
-    header("Location: http://localhost:8080/hungryHoos2/browse.html");
+    header("Location: http://localhost:8080/hungryHoos2/browseLogin.html?username=" . $name);
 ?>
 </body>
 </html>
